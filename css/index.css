@@ -59,3 +59,38 @@ a {
     text-align: center;
     align-self: center;
 }
+
+
+/* HERO SECTION */
+.hero {
+    background-image: url("../img/index/main-bg-library.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 75vh;
+    position: relative;
+}
+
+.hero--overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero--main-title {
+    color: whitesmoke;
+    text-shadow: 0 0 1px;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero--main-subtitle {
+    color: whitesmoke;
+    text-shadow: 0 0 1px;
+    font-size: 1.3rem;
+    margin: 0 0 6rem;
+}

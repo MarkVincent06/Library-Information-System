@@ -39,48 +39,46 @@ body {
 /* FORMS SECTION */
 .form-wrapper {
     margin: auto;
-    height: 60vh;
+    height: 70vh;
     width: 60%;
     padding: 20px;
     background: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     justify-content: center;
+    gap: 2rem;
+    align-items: center;
 }
 
 .lis-image > img{
-    width: 400px;
+    width: 350px;
 }
 
 #lis-forms {
-    padding: 20px 40px;
+    padding: 0px 0px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.forms--input-field {
+#form-title {
+    margin: 0;
+    padding: 5px;
+}
+
+.form--fname-lname {
     display: flex;
-    position: relative;
+    gap: 10px;
 }
 
-.forms--input-field > .icon {
-    position: absolute;
-    padding: 10px;
-}
-
-.forms--input-field > input {
+input {
     padding: 10px 30px;
-    width: 15rem;
     border-radius: 3px;
     border: 1px solid gray;
 }
 
-#forms--forgot-pass {
-    align-self: flex-end;
-}
-
 #form--submit-btn {
+    margin-top: 1rem;
     padding: 10px 30px;
     font-size: 1rem;
     font-weight: bold;
@@ -90,6 +88,4 @@ body {
     color: whitesmoke;
     cursor: pointer;
 }
-
-
 

@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/log-in.css">
-    <title>Library Information System | Log in</title>
+    <link rel="stylesheet" href="../css/sign-up.css">
+    <title>Library Information System | Sign up</title>
 </head>
 <body>
     <!-- NAVBAR SECTION -->
@@ -24,21 +24,21 @@
     <!-- FORM SECTION -->
     <div class="form-wrapper">
         <div class="lis-image">
-            <img src="../img/log-in/person-holding-laptop.png" alt="Person holding a laptop">
+            <img src="../img/sign-up/person-holding-laptop2.png" alt="Person holding a laptop">
         </div>
-        <form action="" novalidate id="lis-forms">
-            <h1>Log in</h1>
-            <div class="forms--input-field">
-                <i class="bi bi-person-fill icon"></i>
-                <input type="email" required name="username" placeholder="Email" maxlength="20">
+        <form action="../index.html" novalidate id="lis-forms">
+            <h1 id="form-title">Sign up</h1>
+            <div class="form--fname-lname">
+                <input type="email" required placeholder="First Name" maxlength="20">
+                <input type="email" required placeholder="Last Name" maxlength="20">
             </div>
-            <div class="forms--input-field">
-                <i class="bi bi-lock-fill icon"></i>
-                <input type="password" required name="password" placeholder="Password" maxlength="20">
-            </div>
-            <p id="forms--forgot-pass"><a href="">Forgot your password?</a></p>
-            <input type="submit" value="Log in" id="form--submit-btn">
-            <p>Don't have an account? <a href="sign-up.html">Sign up</a></p>
+            <input type="password" required placeholder="Address" maxlength="20">
+            <input type="password" required placeholder="Email" maxlength="20">
+            <input type="password" required placeholder="Password" maxlength="20">
+            <input type="password" required placeholder="Re-type Password" maxlength="20">
+            <input type="password" required placeholder="Phone Number" maxlength="20">
+            <input type="submit" value="Sign up" id="form--submit-btn">
+            <p>Already have an account? <a href="log-in.html">Log in</a></p>
         </form>
     </div>
 </body>

@@ -1,0 +1,125 @@
+/* MODAL LAYOUT */
+.modal {
+    display: none; /* displays flex using js */
+    height: 430px;
+    width: 500px;
+    background-color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+    border-radius: 3px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/* MODAL CLOSE BUTTON */
+.modal-close-btn-wrapper {
+    text-align: end;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: color 200ms ease-in-out;
+    margin: 15px 15px 0 0;
+}
+
+.close-btn:hover {
+    color: rgba(59,119,215, 1.0);
+}
+
+.close-btn:active {
+    color: rgba(59,119,215, 0.5);
+}
+
+/* FORM */
+.form-wrapper {
+    height: 300px;
+    padding: 0px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.form-title {
+    font-size: 1.7rem;
+    margin: 0 0 20px;
+}
+
+.form-input-wrapper {
+    position: relative;
+}
+
+.form-input-wrapper i {
+    position: absolute;
+    left: 1rem;
+    top: 0.7rem;
+}
+
+.form-input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 20px 10px 40px;
+    border-radius: 3px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: rgba(59, 119, 215, 0.5);
+}
+
+.form-login-btn {
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: whitesmoke;
+    border: none;
+    border-radius: 3px;
+    background: rgb(59, 119, 215);
+    transition: opacity 200ms ease-in-out;
+}
+
+.form-login-btn:hover, .form-forgot-pass-link:hover {
+    opacity: 0.7;
+}
+
+.form-login-btn:active, .form-forgot-pass-link:active {
+    opacity: 0.9;
+}
+
+.form-forgot-pass-link {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: rgb(59, 119, 215);
+}
+
+/* MODAL FOOTER */
+.modal-footer {
+    text-align: center;
+}
+
+.modal-footer > p {
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+.sign-up-link {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: rgb(59, 119, 215);
+}
+
+.sign-up-link:hover {
+    opacity: 0.7;
+}
+
+.sign-up-link:active {
+    opacity: 0.9;
+}

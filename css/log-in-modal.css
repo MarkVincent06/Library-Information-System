@@ -1,18 +1,19 @@
 /* MODAL LAYOUT */
 .modal {
-    display: none; /* displays flex using js */
+    display: none; /* displays block using js */
     height: 430px;
     width: 500px;
     background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 5px;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+    z-index: 10;
 }
 
 /* MODAL CLOSE BUTTON */
@@ -122,4 +123,52 @@
 
 .sign-up-link:active {
     opacity: 0.9;
+}
+
+/* MODAL POPUP CHANGES */
+.open {
+    display: block;
+    animation: fade-in 500ms forwards;
+}
+
+.closing {
+    display: block;
+    animation: fade-out 300ms forwards;
+}
+
+#modal-overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+    animation: fade-in 500ms forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }

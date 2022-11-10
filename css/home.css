@@ -92,13 +92,13 @@ nav {
 .login-btn {
     border: none;
     border-radius: 3px;
-    background: rgba(59,119,215, 1.0);
+    background: whitesmoke;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
-    color: whitesmoke;
+    color: black;
     transition: all 200ms ease-in-out;
 }
 

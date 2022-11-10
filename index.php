@@ -22,7 +22,7 @@
 </head>
 <body>
 
-    <header>
+    <header id="header">
         <nav>
             <div class="nav--logo-wrapper">
                 <a href="#"><img class="main-logo" src="img/home/main-logo.png" alt="The main logo of the website."></a>
@@ -34,11 +34,11 @@
                 <li><a href="">Services</a></li>
                 <li><a href="">About</a></li>          
             </ul>
-            <button class="login-btn">Login</button>
+            <button class="login-btn" id="login-btn">Login</button>
         </nav>
     </header>
 
-    <main>
+    <main id="main">
         <section class="hero">  
             <div class="hero-overlay">
                 <h1 class="hero--title">Library Information System</h1>
@@ -47,13 +47,14 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="footer">
 
     </footer>
 
-    <section class="modal">
+    <!-- LOGIN MODAL -->
+    <section class="modal" id="login-modal">
         <div class="modal-close-btn-wrapper">
-            <i class="close-btn fa-solid fa-xmark"></i>
+            <i class="close-btn fa-solid fa-xmark" id="close-btn"></i>
         </div>
         <div class="modal-body">
             <form class="form-wrapper" action="">
@@ -76,5 +77,11 @@
         </div>
     </section>
 
+    <!-- MODAL POPUP OVERLAY -->
+    <div id="modal-overlay"></div>
+
+    
+    <!-- LOGIN MODAL POP-UP JS -->
+    <script src="js/log-in-modal-popup.js"></script>
 </body>
 </html>

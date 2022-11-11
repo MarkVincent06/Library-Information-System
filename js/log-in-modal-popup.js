@@ -12,11 +12,8 @@ closeBtn.addEventListener('click', () => {
     loginModal.classList.add("closing")
     modalOverlay.classList.add("closing")
     loginModal.addEventListener('animationend', () => {
-        loginModal.classList.remove("closing")
-        loginModal.classList.remove("open")
-        modalOverlay.classList.remove("closing")
-        modalOverlay.classList.remove("active")
-        document.getElementById("email").value = ""
-        document.getElementById("password").value = ""
-    }, {once: true})
+        loginModal.classList.remove("closing", "open")
+        modalOverlay.classList.remove("closing", "active")
+        window.location.reload();
+    }, {once: true})    
 })

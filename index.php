@@ -22,66 +22,16 @@
 </head>
 <body>
 
-    <header id="header">
-        <nav>
-            <div class="nav--logo-wrapper">
-                <a href="#"><img class="main-logo" src="img/home/main-logo.png" alt="The main logo of the website."></a>
-                <a href="#"><h3 class="main-logo-title">CAP - Library Information System</h3></a>
-            </div>
-            <ul class="nav--links-wrapper">
-                <li><a href="#">Home</a></li>
-                <li><a href="">Books</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="">About</a></li>          
-            </ul>
-            <button class="login-btn" id="login-btn">Login</button>
-        </nav>
-    </header>
+    <?php include 'includes/header.php'; ?> <!-- This includes the header that is located on the includes folder -->
 
-    <main id="main">
-        <section class="hero">  
-            <div class="hero-overlay">
-                <h1 class="hero--title">Library Information System</h1>
-                <h2 class="hero--subtitle">We bring what you need.</h2>
-            </div>
-        </section>
-    </main>
-
-    <footer id="footer">
-
-    </footer>
-
-    <!-- LOGIN MODAL -->
-    <section class="modal" id="login-modal">
-        <div class="modal-close-btn-wrapper">
-            <i class="close-btn fa-solid fa-xmark" id="close-btn"></i>
-        </div>
-        <div class="modal-body">
-            <form class="form-wrapper" action="">
-                <h3 class="form-title">Login</h3>
-                <div class="form-input-wrapper">
-                    <label for="email"><i class="fa-solid fa-envelope"></i></label>
-                    <input class="form-input" id="email" type="email" name="email" placeholder="Email">
-                </div>
-                <div class="form-input-wrapper">
-                    <label for="password"><i class="fa-solid fa-key"></i></label>
-                    <input class="form-input" id="password" type="password" name="password" placeholder="Password">
-                </div>
-                <input class="form-login-btn" type="submit" name="login" value="Login">
-                <a class="form-forgot-pass-link" href="#"><p>Forgot Password?</p></a>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <hr>
-            <p>Don't have an account? <a class="sign-up-link" href="">Create one</a></p>
+    <section class="hero">  
+        <div class="hero-overlay">
+            <h1 class="hero--title">Library Information System</h1>
+            <h2 class="hero--subtitle">We bring what you need.</h2>
         </div>
     </section>
 
-    <!-- MODAL POPUP OVERLAY -->
-    <div id="modal-overlay"></div>
+    <?php include 'includes/login-modal.php'; ?> <!-- This includes the login-modal that is located on the includes folder -->
 
-    
-    <!-- LOGIN MODAL POP-UP JS -->
-    <script src="js/log-in-modal-popup.js"></script>
-</body>
-</html>
+    <?php include 'includes/footer.php'; ?> <!-- This includes the footer that is located on the includes folder -->
+   

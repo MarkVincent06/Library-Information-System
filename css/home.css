@@ -89,7 +89,7 @@ nav {
 }   
 
 /* BUTTONS */
-.login-btn {
+#login-btn {
     border: none;
     border-radius: 3px;
     background: whitesmoke;
@@ -100,6 +100,10 @@ nav {
     font-family: 'Poppins', sans-serif;
     color: black;
     transition: all 200ms ease-in-out;
+}
+
+.login-btn i {
+    margin-left: 5px;
 }
 
 /* HOVERS AND ACTIVES */

@@ -1,19 +1,19 @@
 const loginModal = document.getElementById("login-modal")
 const loginBtn = document.getElementById("login-btn")
 const closeBtn = document.getElementById("close-btn")
-const modalOverlay = document.getElementById("modal-overlay")
+const loginModalOverlay = document.getElementById("login-modal-overlay")
 
 loginBtn.addEventListener('click', () => {
     loginModal.classList.add("open")
-    modalOverlay.classList.add("active")
+    loginModalOverlay.classList.add("active")
 })
 
 closeBtn.addEventListener('click', () => {
     loginModal.classList.add("closing")
-    modalOverlay.classList.add("closing")
+    loginModalOverlay.classList.add("closing")
     loginModal.addEventListener('animationend', () => {
         loginModal.classList.remove("closing", "open")
-        modalOverlay.classList.remove("closing", "active")
+        loginModalOverlay.classList.remove("closing", "active")
         window.location.reload();
     }, {once: true})    
 })

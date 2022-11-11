@@ -1,5 +1,5 @@
-/* MODAL LAYOUT */
-.modal {
+/* LOGIN MODAL LAYOUT */
+.login-modal {
     display: none; /* displays block using js */
     height: 460px;
     width: 500px;
@@ -16,53 +16,19 @@
     z-index: 10;
 }
 
-/* MODAL CLOSE BUTTON */
-.modal-close-btn-wrapper {
-    text-align: end;
-}
-
-.close-btn {
-    cursor: pointer;
-    font-size: 1.5rem;
-    transition: color 200ms ease-in-out;
-    margin: 15px 15px 0 0;
-}
-
-.close-btn:hover {
-    color: rgba(59,119,215, 1.0);
-}
-
-.close-btn:active {
-    color: rgba(59,119,215, 0.5);
-}
-
-/* FORM */
-.form-wrapper {
-    height: 300px;
-    padding: 0px 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.form-title {
-    font-size: 1.7rem;
-    margin: 20px 0 20px;
-}
-
-.form-input-wrapper {
+/* LOGIN FORM INPUT */
+.login-form-input-wrapper {
     position: relative;
     margin: 1rem 0 .3rem;
 }
 
-.form-input-wrapper i {
+.login-form-input-wrapper > label > i {
     position: absolute;
     left: 1rem;
     top: 0.7rem;
 }
 
-.form-input {
+.login-form-input {
     box-sizing: border-box;
     width: 100%;
     padding: 10px 20px 10px 40px;
@@ -70,45 +36,18 @@
     border: 2px solid rgba(0, 0, 0, 0.5);
 }
 
-.form-input::-webkit-input-placeholder {
+.login-form-input::-webkit-input-placeholder {
     color: rgb(56, 51, 51);
     font-weight: bold;
 }
 
-.form-input:focus {
+.login-form-input:focus {
     outline: none;
     border: 2px solid rgba(59, 119, 215, 0.5);
     box-shadow: rgba(59, 119, 215, .4) 0px 0px 0px 3px;
 }
 
-.form-login-btn {
-    cursor: pointer;
-    margin-top: 20px;
-    padding: 12px 30px;
-    font-size: 1rem;
-    font-weight: bolder;
-    color: whitesmoke;
-    border: none;
-    border-radius: 3px;
-    background: rgb(59, 119, 215);
-    transition: opacity 200ms ease-in-out;
-}
-
-.form-login-btn:hover, .form-forgot-pass-link:hover {
-    opacity: 0.9;
-}
-
-.form-login-btn:active, .form-forgot-pass-link:active {
-    opacity: 0.7;
-}
-
-.form-forgot-pass-link {
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: rgb(59, 119, 215);
-}
-
-/* FORM VALIDATION */
+/* LOGIN FORM VALIDATION */
 .error-input {
     border-color: #dc3545;
     box-shadow: rgba(220, 53, 69, .4) 0px 0px 0px 3px;
@@ -127,7 +66,11 @@
     margin: 5px 0 0 5px;
 }
 
-#form-submit-validation {
+.form-input-validation > i {
+    margin-right: 7px;
+}
+
+#form-login-validation {
     display: none; /* displays block using js */
     background: rgba(220, 53, 69, .4);
     padding: 15px 13px;
@@ -142,32 +85,7 @@
     color: #dc3545;
 }
 
-/* MODAL FOOTER */
-.modal-footer {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.modal-footer > p {
-    font-size: 0.9rem;
-    margin-top: 25px;
-}
-
-.sign-up-link {
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: rgb(59, 119, 215);
-}
-
-.sign-up-link:hover {
-    opacity: 0.7;
-}
-
-.sign-up-link:active {
-    opacity: 0.9;
-}
-
-/* MODAL POPUP CHANGES */
+/* LOGIN MODAL POPUP CHANGES */
 .open {
     display: block;
     animation: fade-in 500ms forwards;
@@ -178,7 +96,7 @@
     animation: fade-out 300ms forwards;
 }
 
-#modal-overlay {
+#login-modal-overlay {
     position: fixed;
     opacity: 0;
     top: 0;
@@ -189,10 +107,13 @@
     pointer-events: none;
 }
 
-#modal-overlay.active {
-    opacity: 1;
+#login-modal-overlay.active {
     pointer-events: all;
     animation: fade-in 500ms forwards;
+}
+
+#login-modal-overlay.closing {
+    animation: fade-out 300ms forwards;
 }
 
 @keyframes fade-in {

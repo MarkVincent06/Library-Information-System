@@ -13,7 +13,9 @@
 
     <!-- CSS LINK -->
     <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/log-in-modal.css">
+    <link rel="stylesheet" href="css/login-modal.css">
+    <link rel="stylesheet" href="css/sign-up-modal.css">
+    <link rel="stylesheet" href="css/global.css">
 
     <!-- FONT AWESOME CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -31,7 +33,10 @@
         </div>
     </section>
 
-    <?php include 'includes/login-modal.php'; ?> <!-- This includes the login-modal that is located on the includes folder -->
+    <?php 
+        include 'includes/login-modal.php'; // This includes the login-modal that is located on the includes folder
+        include 'includes/sign-up-modal.php'; // This includes the sign-up-modal that is located on the includes folder
+        include 'includes/footer.php'; // This includes the footer that is located on the includes folder
+    ?> 
 
-    <?php include 'includes/footer.php'; ?> <!-- This includes the footer that is located on the includes folder -->
    

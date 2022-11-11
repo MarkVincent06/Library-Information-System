@@ -1,0 +1,29 @@
+/* MODAL LAYOUT */
+.sign-up-modal {
+    display: none; /* displays block using js */
+    height: 500px;
+    width: 500px;
+    background-color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 10;
+}
+
+/* SIGN UP FORM INPUT */
+.sign-up-form-input-wrapper {
+    border: 3px solid pink;
+    position: relative;
+    height: 50px;
+}
+
+.sign-up-form-input {
+    width: 100%;
+    border: none;
+}

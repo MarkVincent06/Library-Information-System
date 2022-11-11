@@ -89,7 +89,7 @@ nav {
 }   
 
 /* BUTTONS */
-#login-btn {
+.login-btn {
     border: none;
     border-radius: 3px;
     background: whitesmoke;

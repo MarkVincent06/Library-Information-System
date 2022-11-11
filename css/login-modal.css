@@ -16,6 +16,21 @@
     z-index: 10;
 }
 
+/* LOGIN FORM LAYOUT */
+.login-form-wrapper {
+    height: 300px;
+    padding: 0px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.login-form-title {
+    font-size: 1.7rem;
+    margin: 20px 0 20px;
+}
+
 /* LOGIN FORM INPUT */
 .login-form-input-wrapper {
     position: relative;
@@ -25,7 +40,7 @@
 .login-form-input-wrapper > label > i {
     position: absolute;
     left: 1rem;
-    top: 0.7rem;
+    top: 13px;
 }
 
 .login-form-input {
@@ -34,6 +49,7 @@
     padding: 10px 20px 10px 40px;
     border-radius: 3px;
     border: 2px solid rgba(0, 0, 0, 0.5);
+    background-color: transparent;
 }
 
 .login-form-input::-webkit-input-placeholder {
@@ -45,6 +61,17 @@
     outline: none;
     border: 2px solid rgba(59, 119, 215, 0.5);
     box-shadow: rgba(59, 119, 215, .4) 0px 0px 0px 3px;
+}
+
+/* LOGIN MODAL FOOTER */
+.login-modal-footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.login-modal-footer > p {
+    font-size: 0.9rem;
+    margin-top: 25px;
 }
 
 /* LOGIN FORM VALIDATION */

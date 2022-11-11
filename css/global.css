@@ -1,6 +1,6 @@
 /* ALL GLOBAL STYLINGS */
 
-/* START OF MODAL HEADER  */
+/* MODAL CLOSE BUTTON */
 .modal-close-btn-wrapper {
     text-align: end;
 }
@@ -19,24 +19,9 @@
 .close-btn:active {
     color: rgba(59,119,215, 0.5);
 }
-/* END OF MODAL HEADER  */
 
 
-/* START OF MODAL BODY  */
-.form-wrapper {
-    height: 300px;
-    padding: 0px 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.form-title {
-    font-size: 1.7rem;
-    margin: 20px 0 20px;
-}
-
+/* MODAL FORM */
 .form-btn {
     cursor: pointer;
     margin-top: 20px;
@@ -54,6 +39,7 @@
     font-size: 0.9rem;
     text-decoration: none;
     color: rgb(59, 119, 215);
+    cursor: pointer;
 }
 
 .form-btn:hover, .form-link:hover {
@@ -63,17 +49,5 @@
 .form-btn:active, .form-link:active {
     opacity: 0.7;
 }
-/* END OF MODAL BODY  */
 
 
-/* START OF MODAL FOOTER */
-.modal-footer {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.modal-footer > p {
-    font-size: 0.9rem;
-    margin-top: 25px;
-}
-/* END OF MODAL FOOTER */

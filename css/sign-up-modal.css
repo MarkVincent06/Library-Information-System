@@ -1,7 +1,7 @@
 /* MODAL LAYOUT */
 .sign-up-modal {
     display: none; /* displays block using js */
-    height: 500px;
+    height: 550px;
     width: 500px;
     background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -13,17 +13,141 @@
     left: 0;
     right: 0;
     margin: auto;
-    z-index: 10;
+    z-index: 15;
+}
+
+/* SIGN UP FORM LAYOUT */
+.sign-up-form-wrapper {
+    height: 430px;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.sign-up-form-title {
+    font-size: 1.7rem;
+    margin: 0;
 }
 
 /* SIGN UP FORM INPUT */
+.sign-up-form-input-wrapper:nth-of-type(1),
+.sign-up-form-input-wrapper:nth-of-type(3) {
+    display: flex;
+    gap: 10px;
+}
+
 .sign-up-form-input-wrapper {
-    border: 3px solid pink;
     position: relative;
-    height: 50px;
 }
 
 .sign-up-form-input {
     width: 100%;
-    border: none;
+    box-sizing: border-box;
+    padding: 10px 13px;
+    border-radius: 3px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    background-color: transparent;
 }
+
+.sign-up-form-input::-webkit-input-placeholder {
+    color: transparent;
+    user-select: none;
+}
+
+.sign-up-form-label,
+.sign-up-form-label2,
+.sign-up-form-label3 {
+    position: absolute;
+    transition: .2s ease-in-out;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.sign-up-form-label {
+    left: 15px;
+    bottom: 10px;
+}
+
+.sign-up-form-label2 {
+    right: 69px;
+    bottom: 10px;
+}
+
+.sign-up-form-label3 {
+    right: 84px;
+    bottom: 10px;
+}
+
+.sign-up-form-input:focus + .sign-up-form-label, 
+.sign-up-form-input:focus + .sign-up-form-label2,
+.sign-up-form-input:focus + .sign-up-form-label3,
+.sign-up-form-input:not(:placeholder-shown) + .sign-up-form-label,
+.sign-up-form-input:not(:placeholder-shown) + .sign-up-form-label2,
+.sign-up-form-input:not(:placeholder-shown) + .sign-up-form-label3 {
+    bottom: 33px;
+    font-size: 13px;
+    background-color: whitesmoke;
+    padding: 0 5px;
+}
+
+.sign-up-form-input:focus + .sign-up-form-label, 
+.sign-up-form-input:not(:placeholder-shown) + .sign-up-form-label {
+    left: 9px;
+}
+
+.sign-up-form-input:focus + .sign-up-form-label2,
+.sign-up-form-input:not(:placeholder-shown) + .sign-up-form-label2 {
+    right: 75px;
+}
+
+.sign-up-form-input:focus + .sign-up-form-label3,
+.sign-up-form-input:not(:placeholder-shown) + .sign-up-form-label3 {
+    right: 89px;
+}
+
+
+/* SIGN UP MODAL FOOTER */
+.sign-up-modal-footer {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.sign-up-modal-footer > p {
+    font-size: 0.9rem;
+    margin-top: 25px;
+}
+
+/* SIGN UP MODAL POPUP CHANGES */ 
+.open-sign-up-modal {
+    display: block;
+    animation: maximize .3s forwards;
+}
+
+.close-sign-up-modal {
+    display: block;
+    animation: minimize .3s forwards;
+}
+
+@keyframes maximize {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes minimize {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+

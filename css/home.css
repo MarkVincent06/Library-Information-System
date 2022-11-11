@@ -1,8 +1,11 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
     background-color: whitesmoke;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
 }
 
 /* LAYOUTS */

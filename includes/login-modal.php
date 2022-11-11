@@ -3,8 +3,8 @@
         <i class="close-btn fa-solid fa-xmark" id="close-btn"></i>
     </div>
     <div class="modal-body"> 
-        <form id="login-form" class="form-wrapper" action="" method="GET">
-            <h3 class="form-title">Login</h3>
+        <form id="login-form" class="login-form-wrapper" action="" method="GET">
+            <h3 class="login-form-title">Login</h3>
             <div class="login-form-input-wrapper">
                 <label for="email"><i class="fa-solid fa-envelope"></i></label>
                 <input class="login-form-input" id="email" type="text" name="email" placeholder="Email">
@@ -26,17 +26,12 @@
             <a class="form-link" href="#"><p>Forgot Password?</p></a>
         </form>
     </div>
-    <div class="modal-footer">
+    <div class="login-modal-footer">
         <hr>
-        <p>Don't have an account? <a class="form-link" href="">Create one</a></p>
+        <p>Don't have an account? <a class="form-link" id="sign-up-link">Create one</a></p>
     </div>
 </section>
 
 <!-- MODAL POPUP OVERLAY -->
 <div id="login-modal-overlay"></div>
 
-<!-- MODAL POP-UP JS -->
-<script src="js/login-modal-popup.js"></script>
-
-<!-- FORM VALIDATION JS -->
-<script src="js/login-form-validation.js"></script>

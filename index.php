@@ -14,11 +14,17 @@
     <!-- CSS LINK -->
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/login-modal.css">
-    <link rel="stylesheet" href="css/sign-up-modal.css">
+    <link rel="stylesheet" href="css/sign-up-modal.css">   
     <link rel="stylesheet" href="css/global.css">
 
     <!-- FONT AWESOME CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- MODAL POP-UP JS -->
+    <script src="js/modal-popup.js" defer></script>
+
+    <!-- FORM VALIDATION JS -->
+    <script src="js/login-form-validation.js" defer></script>
 
     <title>Home | Library Information System</title>
 </head>
@@ -38,5 +44,7 @@
         include 'includes/sign-up-modal.php'; // This includes the sign-up-modal that is located on the includes folder
         include 'includes/footer.php'; // This includes the footer that is located on the includes folder
     ?> 
+
+    
 
    

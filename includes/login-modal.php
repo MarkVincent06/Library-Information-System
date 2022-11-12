@@ -8,18 +8,18 @@
             <div class="login-form-input-wrapper">
                 <label for="email"><i class="fa-solid fa-envelope"></i></label>
                 <input class="login-form-input" id="email" type="text" name="email" placeholder="Email">
-                <div class="form-input-validation">
+                <div class="login-input-validation-msg">
                     <i class="fa-solid fa-circle-exclamation"></i>Please enter an email
                 </div>
             </div>
             <div class="login-form-input-wrapper">
                 <label for="password"><i class="fa-solid fa-key"></i></label>
                 <input class="login-form-input" id="password" type="password" name="password" placeholder="Password">
-                <div class="form-input-validation">
+                <div class="login-input-validation-msg">
                     <i class="fa-solid fa-circle-exclamation"></i>Please enter a password
                 </div>
             </div>
-            <div id="form-login-validation">
+            <div id="login-submit-validation-msg">
                 <i class="fa-solid fa-circle-exclamation"></i>A user with this email does not exist
             </div>
             <input class="form-btn" type="submit" name="login" value="Login">

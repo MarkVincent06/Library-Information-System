@@ -25,6 +25,7 @@
 
     <!-- FORM VALIDATION JS -->
     <script src="js/login-form-validation.js" defer></script>
+    <script src="js/sign-up-form-validation.js" defer></script>
 
     <title>Home | Library Information System</title>
 </head>

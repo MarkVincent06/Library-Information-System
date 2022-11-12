@@ -26,5 +26,10 @@ document.addEventListener('click', e => {
     if(e.target.id === 'sign-up-link') {
         signUpModal.classList.add('open-sign-up-modal')
     }
+
+    if(e.target.id === 'login-link') {
+        signUpModal.classList.add("close-sign-up-modal")
+        signUpModal.classList.remove("close-sign-up-modal", 'open-sign-up-modal')
+    }
 })
 

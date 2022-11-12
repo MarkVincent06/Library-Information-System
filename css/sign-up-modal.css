@@ -51,6 +51,12 @@
     background-color: transparent;
 }
 
+.sign-up-form-input:focus {
+    outline: none;
+    border: 2px solid rgba(59, 119, 215, 0.5);
+    box-shadow: rgba(59, 119, 215, .4) 0px 0px 0px 3px;
+}
+
 .sign-up-form-input::-webkit-input-placeholder {
     color: transparent;
     user-select: none;
@@ -59,6 +65,7 @@
 .sign-up-form-label,
 .sign-up-form-label2,
 .sign-up-form-label3 {
+    color: black;
     position: absolute;
     transition: .2s ease-in-out;
     font-weight: bold;
@@ -107,6 +114,15 @@
     right: 89px;
 }
 
+.input-guide {
+    position: absolute;
+    font-size: 11px;
+    top: 46px;
+    left: 1px;
+    opacity: 0.7;
+    text-align: start;
+}
+
 
 /* SIGN UP MODAL FOOTER */
 .sign-up-modal-footer {
@@ -117,6 +133,41 @@
 .sign-up-modal-footer > p {
     font-size: 0.9rem;
     margin-top: 25px;
+}
+
+/* LOGIN FORM VALIDATION */
+
+.sign-up-input-validation-msg {
+    display: none;
+    white-space: nowrap;
+    vertical-align:middle;
+    position: absolute;
+    font-size: 11px;
+    top: 35px;
+    left: 1px;
+    text-align: start;
+    color:#dc3545;
+}
+
+.sign-up-input-validation-msg i {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.sign-up-form-input-wrapper.error .sign-up-form-input {
+    border-color: #dc3545 !important;
+}
+
+.sign-up-form-input-wrapper.error .sign-up-form-input:focus {
+    box-shadow: rgba(220, 53, 69, .4) 0px 0px 0px 3px;  
+}
+
+.sign-up-form-input-wrapper.error > .sign-up-input-validation-msg{
+    display: inline-block;
+}
+
+.sign-up-form-input-wrapper.error .input-guide {
+    visibility: hidden;
 }
 
 /* SIGN UP MODAL POPUP CHANGES */ 

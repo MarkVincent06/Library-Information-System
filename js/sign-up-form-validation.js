@@ -5,8 +5,6 @@ const newEmail = document.getElementById("new-email")
 const newPassword = document.getElementById("new-password")
 const confirmPassword = document.getElementById("confirm-password")
 
-console.log("<?php $test?>")
-
 signUpForm.addEventListener('submit', e => {
     if(document.getElementsByClassName('error').length > 0) {
         removeErrorClass()
@@ -16,9 +14,7 @@ signUpForm.addEventListener('submit', e => {
     if(checkFirstNameAndLastName(newFirstName.value.trim(), newLastName.value.trim())
         & checkEmail(newEmail.value.trim())
         & checkPassword(newPassword.value.trim(), confirmPassword.value.trim())) {
-        console.log("Login success!")
     } else {
-        console.log("Login failed!")
         e.preventDefault()
     }
 

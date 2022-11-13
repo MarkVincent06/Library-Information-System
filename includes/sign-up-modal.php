@@ -1,5 +1,25 @@
 <?php
-    $test = '69';
+    // This is where we get the data of the user after they submitted the form
+    if(isset($_POST['sign-up'])) {
+        $newFirstName = htmlspecialchars($_POST['new-first-name']); // We use `htmlspecialchars` function to prevent xss attacks
+        $newLastName = htmlspecialchars($_POST['new-last-name']);
+        $newEmail = htmlspecialchars($_POST['new-email']);
+        $newPassword = htmlspecialchars($_POST['new-password']);
+
+        // Writing a sql query for inserting values in the database
+        $sql = "INSERT INTO lis_users_accounts (firstname, lastname, email, password, birthday, gender)
+        VALUES ('$newFirstName', '$newLastName', '$newEmail', '$newPassword', NULL, NULL)";
+
+        // save to db and check
+        if(mysqli_query($conn, $sql)) {
+            echo "Sign up success";
+        } else {
+            die("Query error: " . mysqli_error($conn));
+        }
+
+        // closing the connection to the db
+        mysqli_close($conn);
+    }    
 ?>
 
 <section class="sign-up-modal" id="sign-up-modal">
@@ -7,7 +27,12 @@
         <i class="close-btn fa-solid fa-xmark"></i>
     </div>
     <div class="modal-body"> 
-        <form id="sign-up-form" class="sign-up-form-wrapper" action="" method="POST">
+        <form 
+            id="sign-up-form" 
+            class="sign-up-form-wrapper" 
+            action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"  
+            method="POST"
+        >
             <h3 class="sign-up-form-title">Sign up</h3>
             <!-- First name and Last name inputs -->
             <div class="sign-up-form-input-wrapper">
@@ -48,3 +73,5 @@
         <p>Already have an account? <a class="form-link" id="login-link">Login</a></p>
     </div>
 </section>
+
+

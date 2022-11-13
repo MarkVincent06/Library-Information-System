@@ -3,16 +3,21 @@
         <i class="close-btn fa-solid fa-xmark" id="close-btn"></i>
     </div>
     <div class="modal-body"> 
-        <form id="login-form" class="login-form-wrapper" action="" method="GET">
+        <form 
+            id="login-form" 
+            class="login-form-wrapper" 
+            action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"  
+            method="POST"
+        >
             <h3 class="login-form-title">Login</h3>
-            <div class="login-form-input-wrapper">
+            <div class="login-form-control">
                 <label for="email"><i class="fa-solid fa-envelope"></i></label>
                 <input class="login-form-input" id="email" type="text" name="email" placeholder="Email">
-                <div class="login-input-validation-msg">
-                    <i class="fa-solid fa-circle-exclamation"></i>Please enter an email
-                </div>
+                <small class="login-input-validation-msg">
+                    
+                </small>
             </div>
-            <div class="login-form-input-wrapper">
+            <div class="login-form-control">
                 <label for="password"><i class="fa-solid fa-key"></i></label>
                 <input class="login-form-input" id="password" type="password" name="password" placeholder="Password">
                 <div class="login-input-validation-msg">

@@ -1,6 +1,6 @@
 /* LOGIN MODAL LAYOUT */
 .login-modal {
-    display: none; /* displays block using js */
+    display: block; /* displays block using js */
     height: 460px;
     width: 500px;
     background-color: whitesmoke;
@@ -18,7 +18,7 @@
 
 /* LOGIN FORM LAYOUT */
 .login-form-wrapper {
-    height: 300px;
+    height: 320px;
     padding: 0px 100px;
     display: flex;
     flex-direction: column;
@@ -32,12 +32,12 @@
 }
 
 /* LOGIN FORM INPUT */
-.login-form-input-wrapper {
+.login-form-control {
     position: relative;
     margin: 1rem 0 .3rem;
 }
 
-.login-form-input-wrapper > label > i {
+.login-form-control > label > i {
     position: absolute;
     left: 1rem;
     top: 13px;
@@ -71,34 +71,37 @@
 
 .login-modal-footer > p {
     font-size: 0.9rem;
-    margin-top: 25px;
+    margin-top: 16px;
 }
 
 /* LOGIN FORM VALIDATION */
-.error-input {
-    border-color: #dc3545;
-    box-shadow: rgba(220, 53, 69, .4) 0px 0px 0px 3px;
-}
-
-.error-input:focus {
-    border-color: #dc3545;
-    box-shadow: rgba(220, 53, 69, .4) 0px 0px 0px 3px;
-}
-
 .login-input-validation-msg {
-    display: none; /* displays block using js */
-    text-align: start;
+    display: none; /* displays inline using js */
     font-size: 13px;
     color: #dc3545;
-    margin: 5px 0 0 5px;
+    margin: 5px 0 0 0;
+    float:left;
 }
 
 .login-input-validation-msg > i {
     margin-right: 7px;
 }
 
+
+.login-form-control.error .login-form-input {
+    border-color: #dc3545;
+}
+
+.login-form-control.error .login-form-input:focus {
+    box-shadow: rgba(220, 53, 69, .4) 0px 0px 0px 3px;
+}
+
+.login-form-control.error .login-input-validation-msg {
+    display: inline;
+}
+
 #login-submit-validation-msg {
-    display: none; /* displays block using js */
+    display: none; /* displays block using php */
     background: rgba(220, 53, 69, .4);
     padding: 15px 13px;
     border-radius: 5px;

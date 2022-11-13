@@ -1,3 +1,8 @@
+<?php
+    // Include the file that connects to the database
+    include 'includes/database.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +50,13 @@
         include 'includes/sign-up-modal.php'; // This includes the sign-up-modal that is located on the includes folder
         include 'includes/footer.php'; // This includes the footer that is located on the includes folder
     ?> 
+
+    <!-- This script prevents the form from resubmitting when the browser refreshes -->
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
 
     
 

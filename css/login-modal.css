@@ -1,6 +1,6 @@
 /* LOGIN MODAL LAYOUT */
 .login-modal {
-    display: block; /* displays block using js */
+    display: none; /* displays block using js */
     height: 460px;
     width: 500px;
     background-color: whitesmoke;

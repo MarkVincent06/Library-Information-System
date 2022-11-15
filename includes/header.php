@@ -10,7 +10,11 @@
             <li><a href="">Services</a></li>
             <li><a href="">About</a></li>          
         </ul>
-        <button class="login-btn" id="login-btn">Login <i class="fa-solid fa-right-to-bracket"></i></button>
+        <div class="user-profile-wrapper">
+            <a href=""><img class="avatar" src="" alt="User's avatar"></a>
+            <a href=""><h3 class="username">Mark Vincent</h3></a>
+        </div>
+        <!-- <button class="login-btn" id="login-btn">Login <i class="fa-solid fa-right-to-bracket"></i></button> -->
     </nav>
 </header>
 

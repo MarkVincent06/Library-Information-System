@@ -1,6 +1,5 @@
 <?php
-    // Include the file that connects to the database
-    include 'includes/database.php'
+    // session_start();
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +34,8 @@
     <title>Home | Library Information System</title>
 </head>
 <body>
-
-    <?php include 'includes/header.php'; ?> <!-- This includes the header that is located on the includes folder -->
+    
+    <?php include 'includes/header.php'; // This includes the header that is located on the includes folder ?> 
 
     <section class="hero">  
         <div class="hero-overlay">

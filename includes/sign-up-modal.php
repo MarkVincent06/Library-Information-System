@@ -1,6 +1,11 @@
 <?php
     // This is where we get the data of the user after they submitted the form
     if(isset($_POST['sign-up'])) {
+        $_SESSION['welcome-msg'] = "This session will welcome the new user.";
+
+        // Include the file that connects to the database
+        include 'includes/database.php';
+
         $newFirstName = htmlspecialchars($_POST['new-first-name']); // We use `htmlspecialchars` function to prevent xss attacks
         $newLastName = htmlspecialchars($_POST['new-last-name']);
         $newEmail = htmlspecialchars($_POST['new-email']);
@@ -12,7 +17,7 @@
 
         // save to db and check
         if(mysqli_query($conn, $sql)) {
-            echo "Sign up success";
+            include 'includes/welcome-msg-popup.php'; // this includes the welcome message located on the includes folder
         } else {
             die("Query error: " . mysqli_error($conn));
         }
@@ -20,6 +25,30 @@
         // closing the connection to the db
         mysqli_close($conn);
     }    
+
+    // This function will get all the email address in the database
+    function getEmailData() {
+        include 'includes/database.php';
+
+        $emailData = array();
+
+        $sql = "SELECT `email` FROM `lis_users_accounts`"; // This query will only select the email column
+
+        $result = mysqli_query($conn, $sql); // making the query and getting the result
+
+        $emailArray = mysqli_fetch_all($result, MYSQLI_ASSOC); // fetching all the rows and returning as an associative array
+
+        if($emailArray) {
+            foreach($emailArray as $row) {
+                array_push($emailData, $row['email']);
+            }
+            mysqli_close($conn);
+            return $emailData;
+        } else {
+            mysqli_close($conn);
+            return "";
+        }
+    }
 ?>
 
 <section class="sign-up-modal" id="sign-up-modal">
@@ -53,7 +82,8 @@
                 <input class="sign-up-form-input" id="new-email" type="text" name="new-email" placeholder="Email">
                 <label class="sign-up-form-label" for="new-email">Email</label>
                 <small class="input-guide">You can use letters, numbers & periods</small>
-                <p class="sign-up-input-validation-msg">Sorry, your username must be between 6 and 30 characters long</p>
+                <input id="hidden-input" type="hidden" value='<?php echo json_encode(getEmailData()); ?>'>
+                <p class="sign-up-input-validation-msg"></p>
             </div>
 
             <!-- Password input -->

@@ -169,6 +169,10 @@
     visibility: hidden;
 }
 
+.input-guide.error {
+    color: #dc3545;
+}
+
 /* SIGN UP MODAL POPUP CHANGES */ 
 .open-sign-up-modal {
     display: block;

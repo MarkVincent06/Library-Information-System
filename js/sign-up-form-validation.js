@@ -4,6 +4,8 @@ const newLastName = document.getElementById("new-last-name")
 const newEmail = document.getElementById("new-email")
 const newPassword = document.getElementById("new-password")
 const confirmPassword = document.getElementById("confirm-password")
+const hiddenInput = document.getElementById("hidden-input")
+const emailArray = JSON.parse(document.getElementById("hidden-input").value)
 
 signUpForm.addEventListener('submit', e => {
     if(document.getElementsByClassName('error').length > 0) {
@@ -43,7 +45,15 @@ function checkEmail(emailValue) {
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     if(emailValue.length >=6 && emailValue.length <= 40) {
         if(emailValue.match(validRegex)) {
-            return true
+            let isEmailUnique = true
+            for(let email of emailArray) {
+                if(email === emailValue) {
+                    setErrorFor(newEmail, "That email is already taken. Try another.")
+                    isEmailUnique = false
+                    break
+                }
+            }
+            return isEmailUnique ? true : false
         } else {
             if(emailValue.indexOf('@') === -1) {
                 setErrorFor(newEmail, "Make sure to include the '@'")

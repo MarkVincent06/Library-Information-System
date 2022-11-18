@@ -3,10 +3,12 @@ const signUpModal = document.getElementById("sign-up-modal")
 const loginBtn = document.getElementById("login-btn")
 const loginModalOverlay = document.getElementById("login-modal-overlay")
 
-loginBtn.addEventListener('click', () => {
-    loginModal.classList.add("open")
-    loginModalOverlay.classList.add("active")
-})
+if(loginBtn) {
+    loginBtn.addEventListener('click', () => {
+        loginModal.classList.add("open")
+        loginModalOverlay.classList.add("active")
+    })
+}
 
 document.addEventListener('click', e => {
     if(e.target.classList.contains('close-btn')) {

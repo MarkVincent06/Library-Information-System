@@ -2,61 +2,76 @@
     session_start();
 
     // This is where we get the data of the user after they submitted the form
-    if(isset($_POST['sign-up'])) {
+    if(isset($_POST['login']) || isset($_POST['sign-up'])) {
         // Include the file that connects to the database
         include 'includes/database.php';
 
-        $newFirstName = htmlspecialchars($_POST['new-first-name']); // We use `htmlspecialchars` function to prevent xss attacks
-        $newLastName = htmlspecialchars($_POST['new-last-name']);
-        $newEmail = htmlspecialchars($_POST['new-email']);
-        $newPassword = htmlspecialchars($_POST['new-password']);
+        // Logs in the user
+        if(isset($_POST['login'])) {
+            $email = htmlspecialchars($_POST['email']); // We use `htmlspecialchars` function to prevent xss attacks
+            $password = htmlspecialchars($_POST['password']);
 
-        // Writing a sql query for inserting values in the database
-        $sql = "INSERT INTO lis_users_accounts (firstname, lastname, email, password, birthday, gender)
-        VALUES ('$newFirstName', '$newLastName', '$newEmail', '$newPassword', NULL, NULL)";
-
-        // save to db and check
-        if(mysqli_query($conn, $sql)) {
-            // Getting the email and password in the database and storing it in a session
-            $sql = $sql = "SELECT * FROM `lis_users_accounts` WHERE email = '$newEmail' AND password = '$newPassword';";
-            $result = mysqli_query($conn, $sql) or die("No data found!");
-            $lisUserAccount = mysqli_fetch_assoc($result);
-            $_SESSION['active-user'] = $lisUserAccount;
-        } else {
-            die("Query error: " . mysqli_error($conn));
+            logInUserAccount($conn, $email, $password);
         }
+
+        // signs up the user and inserting inputted data in the database
+        if(isset($_POST['sign-up'])) {
+            $newFirstName = htmlspecialchars($_POST['new-first-name']); 
+            $newLastName = htmlspecialchars($_POST['new-last-name']);
+            $newEmail = htmlspecialchars($_POST['new-email']);
+            $newPassword = htmlspecialchars($_POST['new-password']);
+
+            // Writing a sql query for inserting values in the database
+            $sql = "INSERT INTO lis_users_accounts (firstname, lastname, email, password, birthday, gender)
+            VALUES ('$newFirstName', '$newLastName', '$newEmail', '$newPassword', NULL, NULL)";
+
+            // save to db and check
+            if(mysqli_query($conn, $sql)) {
+                // This will automatically log in that newly created account
+                logInUserAccount($conn, $newEmail, $newPassword);
+            } else {
+                die("Query error: " . mysqli_error($conn));
+            }
+        }
+    }    
+
+    // this function will log in the user's account 
+    function logInUserAccount($conn, $email, $password) {
+        $sql = $sql = "SELECT * FROM `lis_users_accounts` WHERE email = '$email' AND password = '$password';";
+        $result = mysqli_query($conn, $sql) or die("No data found!");
+        $lisUserAccount = mysqli_fetch_assoc($result);
+        $_SESSION['active-user'] = $lisUserAccount;
 
         // Free result set
         mysqli_free_result($result);
 
         // closing the connection to the db
         mysqli_close($conn);
-    }    
+    }
 
-    // This function will get all the email address in the database
-    function getEmailData() {
+    // This function will get ALL the email addresses AND passwords in the database
+    function getEmailAndPassFromDB() {
         include 'includes/database.php';
 
-        $emailData = array();
+        $emailAndPassArray = array();
 
-        $sql = "SELECT `email` FROM `lis_users_accounts`"; // This query will only select the email column
-
+        $sql = "SELECT email, password FROM `lis_users_accounts`;"; // This query will select the email and password column
         $result = mysqli_query($conn, $sql); // making the query and getting the result
+        $emailAndPassRow = mysqli_fetch_all($result, MYSQLI_ASSOC); // fetching all the rows and returning as an associative array
 
-        $emailArray = mysqli_fetch_all($result, MYSQLI_ASSOC); // fetching all the rows and returning as an associative array
-
-        if($emailArray) {
-            foreach($emailArray as $row) {
-                array_push($emailData, $row['email']);
+        if($emailAndPassRow) {
+            foreach($emailAndPassRow as $row) {
+                array_push($emailAndPassArray, $row['email'], $row['password']);
             }
             mysqli_close($conn);
-            return $emailData;
+            mysqli_free_result($result);
+            return $emailAndPassArray;
         } else {
             mysqli_close($conn);
+            mysqli_free_result($result);
             return "";
         }
     }
-    // session_unset();
 ?>
 
 <!DOCTYPE html>

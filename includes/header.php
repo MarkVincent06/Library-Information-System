@@ -30,7 +30,7 @@
                         <span>></span>
                     </a>
 
-                    <a href="index.php" class="sub-menu-link">
+                    <a href="includes/logout.php" class="sub-menu-link">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <p>Log out</p>
                         <span>></span>

@@ -8,7 +8,7 @@
         include 'includes/login-modal.php'; // This includes the login-modal that is located on the includes folder
         include 'includes/sign-up-modal.php'; // This includes the sign-up-modal that is located on the includes folder
 
-        if(isset($_POST['sign-up'])) {
+        if(isset($_POST['login']) || isset($_POST['sign-up'])) {
             include 'includes/welcome-msg-popup.php'; // this includes the welcome message located on the includes folder
         }
     ?>

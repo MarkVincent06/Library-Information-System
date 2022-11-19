@@ -5,14 +5,14 @@ const newEmail = document.getElementById("new-email")
 const newPassword = document.getElementById("new-password")
 const confirmPassword = document.getElementById("confirm-password")
 const hiddenInput = document.getElementById("hidden-input")
-const emailArray = JSON.parse(document.getElementById("hidden-input").value)
+
 
 signUpForm.addEventListener('submit', e => {
     if(document.getElementsByClassName('error').length > 0) {
         removeErrorClass()
     }
 
-    // returns true if all the input fields are valid
+    // submits the form if all the validations return true
     if(checkFirstNameAndLastName(newFirstName.value.trim(), newLastName.value.trim())
         & checkEmail(newEmail.value.trim())
         & checkPassword(newPassword.value.trim(), confirmPassword.value.trim())) {
@@ -46,13 +46,14 @@ function checkEmail(emailValue) {
     if(emailValue.length >=6 && emailValue.length <= 40) {
         if(emailValue.match(validRegex)) {
             let isEmailUnique = true
-            for(let email of emailArray) {
-                if(email === emailValue) {
+            // this `emailAndPassArray` is declared in the `login-form-validation.js` file
+            for(i=0; i<emailAndPassArray.length; i+=2) {
+                if(emailAndPassArray[i] === emailValue) {
                     setErrorFor(newEmail, "That email is already taken. Try another.")
                     isEmailUnique = false
                     break
                 }
-            }
+            }   
             return isEmailUnique ? true : false
         } else {
             if(emailValue.indexOf('@') === -1) {

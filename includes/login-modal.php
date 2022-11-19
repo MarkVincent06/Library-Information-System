@@ -13,9 +13,7 @@
             <div class="login-form-control">
                 <label for="email"><i class="fa-solid fa-envelope"></i></label>
                 <input class="login-form-input" id="email" type="text" name="email" placeholder="Email">
-                <small class="login-input-validation-msg">
-                    
-                </small>
+                <small class="login-input-validation-msg"></small>
             </div>
             <div class="login-form-control">
                 <label for="password"><i class="fa-solid fa-key"></i></label>
@@ -24,8 +22,9 @@
                     <i class="fa-solid fa-circle-exclamation"></i>Please enter a password
                 </div>
             </div>
+            <input id="hidden-input" type="hidden" value='<?php echo json_encode(getEmailAndPassFromDB()); ?>'>
             <div id="login-submit-validation-msg">
-                <i class="fa-solid fa-circle-exclamation"></i>A user with this email does not exist
+                <b><i class="fa-solid fa-circle-exclamation"></i>Error:</b> The email or password you entered is incorrect.
             </div>
             <input class="form-btn" type="submit" name="login" value="Login">
             <a class="form-link" href="#"><p>Forgot Password?</p></a>

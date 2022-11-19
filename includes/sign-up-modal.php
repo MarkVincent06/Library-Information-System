@@ -31,7 +31,6 @@
                 <input class="sign-up-form-input" id="new-email" type="text" name="new-email" placeholder="Email">
                 <label class="sign-up-form-label" for="new-email">Email</label>
                 <small class="input-guide">You can use letters, numbers & periods</small>
-                <input id="hidden-input" type="hidden" value='<?php echo json_encode(getEmailData()); ?>'>
                 <p class="sign-up-input-validation-msg"></p>
             </div>
 

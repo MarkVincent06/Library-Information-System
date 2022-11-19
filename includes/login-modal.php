@@ -6,7 +6,7 @@
         <form 
             id="login-form" 
             class="login-form-wrapper" 
-            action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"  
+            action="index.php"  
             method="POST"
         >
             <h3 class="login-form-title">Login</h3>

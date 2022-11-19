@@ -99,9 +99,9 @@ nav {
 .user-avatar {
     width: 40px;
     border-radius: 50%;
-    transition: opacity .3s ease-in-out;
     cursor: pointer;
     user-select: none;
+    transition: opacity .3s ease-in-out;
 }
 
 .user-avatar:hover {
@@ -110,6 +110,7 @@ nav {
 
 .user-avatar:active {
     opacity: 0.5;
+    transform: scale(0.95);
 }
 
 /* SUB-MENU */
@@ -125,7 +126,7 @@ nav {
 }
 
 .sub-menu-wrapper.open-sub-menu {
-    max-height: 400px;
+    max-height: 250px;
 }
 
 .sub-menu {

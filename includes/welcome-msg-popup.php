@@ -23,7 +23,12 @@
     
     .welcome-msg-div .welcome-msg {
         margin: 0;
+        padding: 0;
     } 
+
+    .welcome-msg-div span {
+        color: #001524;
+    }
 
     .welcome-msg i {
         margin-right: 10px;
@@ -51,7 +56,7 @@
 
 <div class="welcome-msg-div" id="welcome-msg-div">
     <h2 class="welcome-msg"><i class="fa-solid fa-circle-check"></i>
-    Successfully signed up! Welcome, <?php echo "${newFirstName}  ${newLastName}"?>👋</h2>
+    Successfully signed up! Welcome, <span><?php echo "${newFirstName}"?><span>👋</h2>
 </div>
 
 <script>

@@ -7,10 +7,11 @@
         <form 
             id="sign-up-form" 
             class="sign-up-form-wrapper" 
-            action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"  
+            action="index.php"  
             method="POST"
         >
             <h3 class="sign-up-form-title">Sign up</h3>
+
             <!-- First name and Last name inputs -->
             <div class="sign-up-form-input-wrapper">
                 <div class="sign-up-form-input-wrapper">

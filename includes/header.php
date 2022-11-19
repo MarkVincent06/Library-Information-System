@@ -11,13 +11,15 @@
             <li><a href="">About</a></li>          
         </ul>
         <?php if(isset($_SESSION['active-user'])): ?>
-            <img class="user-avatar" id="user-avatar" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar" draggable="false">
+            <img class="user-avatar" id="user-avatar" onclick="toggleSubMenu()" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar" draggable="false">
 
             <div class="sub-menu-wrapper" id="sub-menu">
                 <div class="sub-menu">
                     <div class="user-info">
                         <img class="sub-menu-avatar" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar">
-                        <h2 class="sub-menu-name"><?php echo "$newFirstName  $newLastName" ?></h2>
+                        <h2 class="sub-menu-name">
+                            <?php echo $_SESSION['active-user']['firstname'] . " " . $_SESSION['active-user']['lastname'] ?>
+                        <h2>
                     </div>
 
                     <hr>
@@ -28,8 +30,8 @@
                         <span>></span>
                     </a>
 
-                    <a href="#" class="sub-menu-link">
-                        <i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
+                    <a href="index.php" class="sub-menu-link">
+                        <i class="fa-solid fa-right-from-bracket"></i>
                         <p>Log out</p>
                         <span>></span>
                     </a>
@@ -38,9 +40,22 @@
 
                  <!-- JS script for opening and closing of the sub-menu -->
                 <script>
-                    document.getElementById("user-avatar").addEventListener('click', () => {
-                        document.getElementById("sub-menu").classList.toggle('open-sub-menu')
-                    })
+                    const subMenu = document.getElementById("sub-menu")
+                    
+                    function toggleSubMenu() {
+                        subMenu.classList.toggle('open-sub-menu')
+                    }
+
+                    // This closes the sub-menu when clicked outside of it
+                    window.onclick = e => {
+                        if(!e.target.matches('.user-avatar')) {
+                            if(subMenu.classList.contains('open-sub-menu')) {
+                                subMenu.classList.remove('open-sub-menu')     
+                            }
+                        }   
+                    }
+
+                    subMenu.addEventListener('click', e => e.stopPropagation())
                 </script>
             </div>
         <?php else: ?>

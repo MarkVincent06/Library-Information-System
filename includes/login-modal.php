@@ -27,7 +27,7 @@
                 <b><i class="fa-solid fa-circle-exclamation"></i>Error:</b> The email or password you entered is incorrect.
             </div>
             <input class="form-btn" type="submit" name="login" value="Login">
-            <a class="form-link" href="#"><p>Forgot Password?</p></a>
+            <a class="form-link" href="forgot-password.php"><p>Forgot Password?</p></a>
         </form>
     </div>
     <div class="login-modal-footer">

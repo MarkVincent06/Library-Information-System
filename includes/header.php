@@ -27,13 +27,11 @@
                     <a href="#" class="sub-menu-link">
                         <i class="fa-solid fa-gear"></i>
                         <p>Settings</p>
-                        <span>></span>
                     </a>
 
                     <a href="includes/logout.php" class="sub-menu-link">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <p>Log out</p>
-                        <span>></span>
                     </a>
 
                 </div>

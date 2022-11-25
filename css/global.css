@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: rgba(211, 211, 211, 0.3);
     margin: 0;
     padding: 0;
 }
@@ -185,11 +185,6 @@ nav {
 
 .sub-menu-link p {
     width: 100%;
-}
-
-.sub-menu-link span {
-    font-size: 30px;
-    color: rgba(128, 128, 128);
 }
 
 .sub-menu-link:hover {

@@ -56,7 +56,12 @@
 
 <div class="welcome-msg-div" id="welcome-msg-div">
     <h2 class="welcome-msg"><i class="fa-solid fa-circle-check"></i>
-    Successfully signed up! Welcome, <span><?php echo $_SESSION['active-user']['firstname']; ?><span>👋</h2>
+    <?php if(isset($_POST['login'])): ?>
+        Successfully logged in! Welcome back, 
+        <span><?php echo $_SESSION['active-user']['firstname']; ?><span>👋</h2>
+    <?php elseif(isset($_POST['sign-up'])): ?>
+        Successfully signed up! Welcome, <span><?php echo $_SESSION['active-user']['firstname']; ?><span>👋</h2>
+    <?php endif ?>
 </div>
 
 <script>

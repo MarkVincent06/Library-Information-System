@@ -26,20 +26,42 @@
     </header>
 
     <main>
-        <div class="wrapper">
-            <div class="wrapper--header">
+        <!-- RESET PASSWORD SECTION -->
+        <div class="reset-password-wrapper">
+            <div class="reset-password-wrapper--header">
                 <h1>Reset Password</h1>
             </div>
             <hr>
-            <div class="wrapper--body">
-                <div class="validation"></div>
+            <div class="reset-password-wrapper--body">
+                <div class="validation" id="email-validation">
+                    <h3 id="error-msg1"></h3>
+                    <small id="error-msg2"></small>
+                </div>
                 <p>Please enter your email address to reset your password.</p>
-                <input type="text" placeholder="E-mail address">
+                <input id="email-input" type="text" placeholder="E-mail address" name="email">
             </div>
             <hr>
-            <div class="wrapper--footer">
-                <a href="index.php">Cancel</a>
-                <button>Reset</button>
+            <div class="reset-password-wrapper--footer">
+                <a href="index.php" class="cancel-link">Cancel</a>
+                <button class="reset-btn" id="reset-btn">Reset</button>
+            </div>
+        </div>
+
+        <!-- NEW PASSWORD SECTION -->
+        <div class="new-password-wrapper">
+            <div class="new-password-wrapper--header">
+                <h1>New Password</h1>
+            </div>
+            <hr>
+            <div class="new-password-wrapper--body">
+                <p>Enter a new password for:</p>
+                <small>vincentmariscotescleofe@gmail.com</small>
+                <input id="email-input" type="password" placeholder="New password" name="password">
+            </div>
+            <hr>
+            <div class="new-password-wrapper--footer">
+                <a href="#" class="not-you-link">Not you?</a>
+                <button class="change-btn" id="change-btn">Change</button>
             </div>
         </div>
     </main>

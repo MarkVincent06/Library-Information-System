@@ -14,8 +14,11 @@
     <!-- CSS LINK -->
     <link rel="stylesheet" href="css/forgot-password.css">
 
-    <!-- JAVASCRIPT -->
+    <!-- FORGOT PASSWORD JAVASCRIPT -->
     <script src="js/forgot-password.js" defer></script>
+
+    <!-- SWEET ALERT CDN -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 
     <title>Forgot Password | Library Inforamtion System</title>
 </head>
@@ -27,7 +30,7 @@
 
     <main>
         <!-- RESET PASSWORD SECTION -->
-        <div class="reset-password-wrapper">
+        <div class="reset-password-wrapper" id="reset-password-wrapper">
             <div class="reset-password-wrapper--header">
                 <h1>Reset Password</h1>
             </div>
@@ -38,7 +41,7 @@
                     <small id="error-msg2"></small>
                 </div>
                 <p>Please enter your email address to reset your password.</p>
-                <input id="email-input" type="text" placeholder="E-mail address" name="email">
+                <input id="email-input" type="text" placeholder="E-mail address">
             </div>
             <hr>
             <div class="reset-password-wrapper--footer">
@@ -48,21 +51,28 @@
         </div>
 
         <!-- NEW PASSWORD SECTION -->
-        <div class="new-password-wrapper">
+        <div class="new-password-wrapper" id="new-password-wrapper">
             <div class="new-password-wrapper--header">
                 <h1>New Password</h1>
             </div>
             <hr>
             <div class="new-password-wrapper--body">
                 <p>Enter a new password for:</p>
-                <small>vincentmariscotescleofe@gmail.com</small>
-                <input id="email-input" type="password" placeholder="New password" name="password">
+                <small id="user-email"></small>
+                <input id="password-input" type="password" placeholder="New password">
+                <input id="confirm-password-input" type="password" placeholder="Confirm new password">
+                <p class="password-validation" id="password-validation"></p>
             </div>
             <hr>
             <div class="new-password-wrapper--footer">
-                <a href="#" class="not-you-link">Not you?</a>
+                <a href="#" class="not-you-link" id="not-you-link">Not you?</a>
                 <button class="change-btn" id="change-btn">Change</button>
             </div>
+        </div>
+
+        <!-- SUCCESS SECTION -->
+        <div class="success-wrapper">
+
         </div>
     </main>
 

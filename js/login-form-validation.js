@@ -1,5 +1,5 @@
-// This constant is also applied in the `sign-up-form-validation.js` file
-const emailAndPassArray = JSON.parse(document.getElementById("hidden-input").value)
+// This `emailAndPassData` variable is also used in the `sign-up-form-validation.js` file
+const emailAndPassData = getEmailAndPassData()
 
 const loginForm = document.getElementById("login-form")
 const email = document.getElementById("email")
@@ -27,6 +27,23 @@ loginForm.addEventListener('submit', e => {
         e.preventDefault()
     }
 })
+
+// gets all the email and password from the db
+function getEmailAndPassData() {
+    // This wil use an AJAX to fectch the data in `emailAndPassData.php` file
+
+    // Creating a XHR Object
+    const xhr = new XMLHttpRequest();
+
+    //OPEN    type           url/file         async
+    xhr.open('GET', './crudDB/emailAndPassData.php', false) 
+
+    // Sends request
+    xhr.send()
+
+    // Getting the response
+    return JSON.parse(xhr.responseText)
+}
 
 // validates email
 function validateEmail(emailValue) {
@@ -59,8 +76,8 @@ function validatePassword(passwordValue) {
 
 // checks if it matches the inputted email and password from the database
 function checkUserAccount(emailValue, passwordValue) {
-    for(let i=0; i<emailAndPassArray.length; i+=2) {
-        if(emailValue === emailAndPassArray[i] && passwordValue === emailAndPassArray[i+1]) {
+    for(let data of emailAndPassData) {
+        if(emailValue === data.email && passwordValue === data.password) {
             return true
         }
     }

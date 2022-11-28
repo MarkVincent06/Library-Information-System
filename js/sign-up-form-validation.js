@@ -8,6 +8,7 @@ const hiddenInput = document.getElementById("hidden-input")
 
 
 signUpForm.addEventListener('submit', e => {
+    const emailAndPassData = getEmailAndPassData()
     if(document.getElementsByClassName('error').length > 0) {
         removeErrorClass()
     }
@@ -46,9 +47,9 @@ function checkEmail(emailValue) {
     if(emailValue.length >=6 && emailValue.length <= 40) {
         if(emailValue.match(validRegex)) {
             let isEmailUnique = true
-            // this `emailAndPassArray` is declared in the `login-form-validation.js` file
-            for(i=0; i<emailAndPassArray.length; i+=2) {
-                if(emailAndPassArray[i] === emailValue) {
+            // this `emailAndPassData` is declared in the `login-form-validation.js` file
+            for(let data of emailAndPassData) {
+                if(data.email === emailValue) {
                     setErrorFor(newEmail, "That email is already taken. Try another.")
                     isEmailUnique = false
                     break

@@ -22,7 +22,6 @@
                     <i class="fa-solid fa-circle-exclamation"></i>Please enter a password
                 </div>
             </div>
-            <input id="hidden-input" type="hidden" value='<?php echo json_encode(getEmailAndPassFromDB()); ?>'>
             <div id="login-submit-validation-msg">
                 <b><i class="fa-solid fa-circle-exclamation"></i>Error:</b> The email or password you entered is incorrect.
             </div>

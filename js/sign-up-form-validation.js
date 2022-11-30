@@ -66,7 +66,7 @@ function checkEmail(emailValue) {
     } else if(emailValue === "") {
         setErrorFor(newEmail, "Enter an email address")
     } else {
-        setErrorFor(newEmail, "Sorry, your username must be between 6 and 40 characters long")
+        setErrorFor(newEmail, "Sorry, your email must be between 6 and 40 characters long")
     }
     return false
 }

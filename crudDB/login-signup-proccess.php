@@ -22,8 +22,8 @@
             $newPassword = htmlspecialchars($_POST['new-password']);
 
             // Writing a sql query for inserting values in the database
-            $sql = "INSERT INTO lis_users_accounts (firstname, lastname, email, password, birthday, gender)
-            VALUES ('$newFirstName', '$newLastName', '$newEmail', '$newPassword', NULL, NULL)";
+            $sql = "INSERT INTO lis_users_accounts (firstname, lastname, email, password)
+            VALUES ('$newFirstName', '$newLastName', '$newEmail', '$newPassword')";
 
             // save to db and check
             if(mysqli_query($conn, $sql)) {

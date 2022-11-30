@@ -28,6 +28,12 @@
         <a href="index.php"><h3 class="main-logo-title">CAP - Library Information System</h3></a>
     </header>
 
+    <!-- FORGOT PASSWORD HEADER -->
+    <div class="settings-header">
+        <hr>
+        <h1 id="target-settings-title">Forgot Password</h1>
+    </div>
+
     <main>
         <!-- RESET PASSWORD SECTION -->
         <div class="reset-password-wrapper" id="reset-password-wrapper">

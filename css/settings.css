@@ -253,6 +253,11 @@ input[type=number] {
     margin-top: 10px;
 }
 
+input:disabled  {
+    border-color: rgb(235,235,228)!important;
+    background-color: rgb(235,235,228) !important;
+}
+
 
 /* BUTTONS */
 .user-intro-wrapper button,
@@ -349,8 +354,13 @@ input[type=number] {
     height: 20px;
     border-radius: 11px;
     border: 2px solid #666;
+    background-color: rgb(235,235,228);
+    cursor: not-allowed;
+}
+
+.radio-item label.enabled:before {
     background-color: transparent;
-    cursor: pointer;
+    cursor: pointer !important;
 }
   
 .radio-item input[type=radio]:checked + label:after {

@@ -1,5 +1,15 @@
 <?php
     session_start();
+
+    $activeUserFirstName = $_SESSION['active-user']['firstname'];
+    $activeUserLastName = $_SESSION['active-user']['lastname'];
+    $activeUserAddress = $_SESSION['active-user']['address'];
+    $activeUserPhone = $_SESSION['active-user']['phone'];
+    $activeUserBirthday = $_SESSION['active-user']['birthday'];
+    $activeUserGender = $_SESSION['active-user']['gender'];
+    $activeUserEmail = $_SESSION['active-user']['email'];
+    $activeUserPassword = $_SESSION['active-user']['password'];
+
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +31,8 @@
     <!-- FONT AWESOME CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- JQUERY CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <!-- JQUERY MINIFIED CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <!-- SETTINGS JS -->
     <script src="js/settings.js"></script>
@@ -45,12 +55,22 @@
             <div class="settings-content">
                 <div class="user-intro-wrapper">
                     <?php if(isset($_SESSION['active-user-avatar'])): ?>
-                        <img src="<?php echo $_SESSION['active-user-avatar']['img_destination']; ?>" alt="User's avatar">
+                        <img 
+                            src="<?php 
+                                    // Checks if the file exists in the uploads folder 
+                                    if(file_exists($_SESSION['active-user-avatar']['img_destination'])) {
+                                        echo $_SESSION['active-user-avatar']['img_destination']; 
+                                    } else {
+                                        echo 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+                                    }
+                                ?>" 
+                            alt="User's avatar"
+                        >
                     <?php else: ?>
                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar">
                     <?php endif ?>
-                    <h2>Mark Vincent Cleofe</h2>
-                    <p>vincentmariscotescleofe@gmail.com</p>
+                    <h2><?php echo "$activeUserFirstName $activeUserLastName"; ?></h2>
+                    <p><?php echo $activeUserEmail ?></p>
 
                     <form class="change-avatar-form" action="crudDB/uploadImg.php" method="POST" enctype="multipart/form-data">
                         <input type="file" name="imgFile" id="fileInput">
@@ -71,12 +91,22 @@
                         <div class="full-name-inputs">
                             <div class="first-name-wrapper">
                                 <label for="firstname" class="special-label">First Name</label>
-                                <input type="text" value="Mark Vincent" id="firstname">
+                                <input 
+                                    type="text" 
+                                    value="<?php echo $activeUserFirstName ?>" 
+                                    id="firstname" 
+                                    disabled
+                                >
                                 <small class="validation">First or last names must contain at least 3 characters</small>
                             </div>
                             <div class="last-name-wrapper">
                                 <label for="lastname" class="special-label">Last Name</label>
-                                <input type="text" value="Cleofe" id="lastname">
+                                <input 
+                                    type="text" 
+                                    value="<?php echo $activeUserLastName ?>" 
+                                    id="lastname" 
+                                    disabled
+                                >
                                 <small class="validation">Enter last name</small>
                             </div>
                         </div>
@@ -84,7 +114,12 @@
                         <!-- ADDRESS INPUT -->
                         <div class="address-input">
                             <label for="address" class="special-label">Address</label>
-                            <input type="text" id="address">
+                            <input 
+                                type="text" 
+                                value="<?php echo $activeUserAddress ?>" 
+                                id="address" 
+                                disabled
+                            >
                             <small class="validation">Address must be at least 3 characters long</small>
                         </div>
 
@@ -92,12 +127,21 @@
                         <div class="phone-birthday-inputs">
                             <div class="phone-wrapper">
                                 <label for="phone" class="special-label">Phone</label>
-                                <input type="number" id="phone">
+                                <input 
+                                    type="number" 
+                                    value="<?php echo ($activeUserPhone ? $activeUserPhone : '') ?>" 
+                                    id="phone" 
+                                    disabled
+                                >
                                 <small class="validation">Phone number must be at least 10 digits</small>
                             </div>
                             <div class="birthday-wrapper">
                                 <label for="birthday" class="special-label">Birthday</label>
-                                <input type="date" id="birthday">
+                                <input 
+                                    type="date" 
+                                    value="<?php echo $activeUserBirthday ?>"
+                                    id="birthday" 
+                                    disabled>
                             </div>
                         </div>
 
@@ -105,18 +149,32 @@
                         <div class="gender-input">
                             <label class="special-label">Gender</label>
                             <div class="radio-item">
-                                <input type="radio" id="male" name="gender" value="Male">
+                                <input 
+                                    type="radio" 
+                                    id="male" 
+                                    name="gender" 
+                                    value="Male" 
+                                    disabled
+                                    <?php echo ($activeUserGender == 'Male' ? 'checked' : null) ?>
+                                >
                                 <label for="male">Male</label>
                             </div>
 
                             <div class="radio-item">
-                                <input type="radio" id="female" name="gender" value="Female">
+                                <input 
+                                    type="radio" 
+                                    id="female" 
+                                    name="gender" 
+                                    value="Female" 
+                                    disabled
+                                    <?php echo ($activeUserGender == 'Female' ? 'checked' : null) ?>
+                                >
                                 <label for="female">Female</label>
                             </div>
                         </div>
 
                         <a href="#target-settings-title">
-                            <button type="button" class="edit-btn">Edit Profile</button>
+                            <button type="button" class="edit-btn" id="edit-profile-btn">Edit Profile</button>
 
                             <button type="button" class="cancel-btn">Cancel</button>
                             <button type="button" class="save-btn">Save Changes</button>
@@ -132,7 +190,12 @@
                         <div class="email-wrapper">
                             <div class="email-display-input">
                                 <label for="email" class="special-label" id="target-email-link">Email</label>
-                                <input type="text" value="vincentmariscotescleofe@gmail.com" id="email">
+                                <input 
+                                    type="text" 
+                                    value="<?php echo $activeUserEmail ?>" 
+                                    id="email" 
+                                    disabled
+                                >
                             </div>
 
                             <!-- This div will display after they clicked the change email btn -->
@@ -161,7 +224,12 @@
                         <div class="password-wrapper">
                             <div class="password-display-input">
                                 <label for="password" class="special-label">Password</label>
-                                <input type="password" value="helloword123" id="password">
+                                <input 
+                                    type="password" 
+                                    value="<?php echo $activeUserPassword ?>" 
+                                    id="password" 
+                                    disabled
+                                >
                             </div>
                             
                             <!-- This div will display after they clicked the change password btn -->

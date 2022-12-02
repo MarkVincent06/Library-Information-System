@@ -37,11 +37,22 @@
 
     // this function will log in the user's account 
     function logInUserAccount($conn, $email, $password) {
-        $sql = $sql = "SELECT * FROM `lis_users_accounts` WHERE email = '$email' AND password = '$password';";
+        $sql = "SELECT * FROM `lis_users_accounts` WHERE email = '$email' AND password = '$password';";
         $result = mysqli_query($conn, $sql) or die("No data found!");
         $lisUserAccount = mysqli_fetch_assoc($result);
         $_SESSION['active-user'] = $lisUserAccount;
-
+        
+        // this will check if the user has changed his/her avatar
+        $activeUserId = $_SESSION['active-user']['id'];
+        $activeUserFirstName = $_SESSION['active-user']['firstname'];
+    
+        $sql = "SELECT * FROM lis_users_avatar WHERE lis_users_accounts_id = '$activeUserId'";
+        $result = mysqli_query($conn, $sql);
+        if($result) {
+            $lisUserAvatar = mysqli_fetch_assoc($result);
+            $_SESSION['active-user-avatar'] = $lisUserAvatar;
+        }
+           
         // Free result set
         mysqli_free_result($result);
 

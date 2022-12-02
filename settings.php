@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +21,11 @@
     <!-- FONT AWESOME CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- FORGOT PASSWORD JAVASCRIPT
-    <script src="js/forgot-password.js" defer></script> -->
+    <!-- JQUERY CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+
+    <!-- SETTINGS JS -->
+    <script src="js/settings.js"></script>
 
     <title>Settings | Library Inforamtion System</title>
 </head>
@@ -37,10 +44,20 @@
             </div>
             <div class="settings-content">
                 <div class="user-intro-wrapper">
-                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar">
+                    <?php if(isset($_SESSION['active-user-avatar'])): ?>
+                        <img src="<?php echo $_SESSION['active-user-avatar']['img_destination']; ?>" alt="User's avatar">
+                    <?php else: ?>
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar">
+                    <?php endif ?>
                     <h2>Mark Vincent Cleofe</h2>
                     <p>vincentmariscotescleofe@gmail.com</p>
-                    <button type="button">Change Avatar</button>
+
+                    <form class="change-avatar-form" action="crudDB/uploadImg.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="imgFile" id="fileInput">
+                        <button id="change-avatar-btn" type="submit" name="change-avatar-btn">
+                            Change Avatar
+                        </button>
+                    </form>
                 </div>
                 <div class="user-info-wrapper">
                     <!-- PERSONAL DETAILS -->
@@ -190,7 +207,9 @@
                     <div class="logout-account">
                         <h3>Logout</h3>
                         <p>Logs out of your account.</p>
-                        <button type="button" class="logout-btn">Logout</button>
+                        <a href="includes/logout.php">
+                            <button type="button" class="logout-btn">Logout</button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -107,12 +107,24 @@ header .main-logo-title {
 
 .user-intro-wrapper {
     width: 350px;
-    height: 295px;
+    height: 320px;
     padding: 20px;
     background: whitesmoke;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 5px;
+}
+
+.change-avatar-form {
+    position: relative;
+    overflow: hidden;
+}
+
+.change-avatar-form input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
 }
 
 .user-info-wrapper {
@@ -152,8 +164,9 @@ header .main-logo-title {
 
 /* IMAGES */
 .user-intro-wrapper img{
-    width: 123px;
-    border-radius: 50%;
+    width:20vmin; 
+    height:20vmin; 
+    border-radius:50%;
 }   
 
 /* TYPOGRAPHY */

@@ -58,15 +58,15 @@
                         die("Query error: " . mysqli_error($conn));
                     }   
                 } else {
-                    echo "Your file is too big!";
+                    echo "<h2 style='color: red'>ERROR: Your file is too big!</h2>";
                     exit(); 
                 }
             } else {
-                echo "There was an error uploading your image!";
+                echo "<h2 style='color: red'>ERROR: There was an error uploading your image!</h2>";
                 exit(); 
             }
         } else {
-            echo "Invalid file type/extension!";
+            echo "<h2 style='color: red'>ERROR: Invalid file type/extension!</h2>";
             exit();
         }
 

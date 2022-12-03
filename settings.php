@@ -1,6 +1,8 @@
 <?php
     session_start();
+    include 'includes/refreshActiveUserSession.php';
 
+    $activeUserId = $_SESSION['active-user']['id'];
     $activeUserFirstName = $_SESSION['active-user']['firstname'];
     $activeUserLastName = $_SESSION['active-user']['lastname'];
     $activeUserAddress = $_SESSION['active-user']['address'];
@@ -32,12 +34,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- JQUERY MINIFIED CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+    </script>
 
     <!-- SETTINGS JS -->
     <script src="js/settings.js"></script>
 
-    <title>Settings | Library Inforamtion System</title>
+    <title>Settings | Library Information System</title>
 </head>
 <body>
     <header>
@@ -53,6 +56,8 @@
                 <h1 id="target-settings-title">Settings</h1>
             </div>
             <div class="settings-content">
+                <!-- This hidden input is the id of the active user and will be used to update the db -->
+                <input id="hiddenActiveUserId" type="hidden" value="<?php echo $activeUserId ?>">
                 <div class="user-intro-wrapper">
                     <?php if(isset($_SESSION['active-user-avatar'])): ?>
                         <img 
@@ -79,35 +84,38 @@
                         </button>
                     </form>
                 </div>
+
                 <div class="user-info-wrapper">
                     <!-- PERSONAL DETAILS -->
                     <div class="personal-details">
                         <h3>Personal Details</h3>
                         <p>
-                            This is your personal information. Some of the fields are optional and can be blank.
+                            This is your personal information.
                         </p>
 
                         <!-- FIRST NAME AND LAST NAME INPUTS -->
                         <div class="full-name-inputs">
                             <div class="first-name-wrapper">
-                                <label for="firstname" class="special-label">First Name</label>
+                                <label for="firstname" class="special-label">First Name*</label>
                                 <input 
                                     type="text" 
                                     value="<?php echo $activeUserFirstName ?>" 
                                     id="firstname" 
+                                    placeholder="Enter first name"
                                     disabled
                                 >
-                                <small class="validation">First or last names must contain at least 3 characters</small>
+                                <small class="validation"></small>
                             </div>
                             <div class="last-name-wrapper">
-                                <label for="lastname" class="special-label">Last Name</label>
+                                <label for="lastname" class="special-label">Last Name*</label>
                                 <input 
                                     type="text" 
                                     value="<?php echo $activeUserLastName ?>" 
-                                    id="lastname" 
+                                    id="lastname"
+                                    placeholder="Enter last name" 
                                     disabled
                                 >
-                                <small class="validation">Enter last name</small>
+                                <small class="validation"></small>
                             </div>
                         </div>
 
@@ -118,36 +126,41 @@
                                 type="text" 
                                 value="<?php echo $activeUserAddress ?>" 
                                 id="address" 
+                                placeholder="Enter address"
                                 disabled
                             >
-                            <small class="validation">Address must be at least 3 characters long</small>
+                            <small class="validation"></small>
                         </div>
 
                         <!-- PHONE AND BIRTHDAY INPUTS -->
                         <div class="phone-birthday-inputs">
                             <div class="phone-wrapper">
-                                <label for="phone" class="special-label">Phone</label>
+                                <label for="phone" class="special-label">Phone*</label>
                                 <input 
                                     type="number" 
                                     value="<?php echo ($activeUserPhone ? $activeUserPhone : '') ?>" 
                                     id="phone" 
+                                    placeholder="Enter phone number"
                                     disabled
                                 >
-                                <small class="validation">Phone number must be at least 10 digits</small>
+                                <small class="validation"></small>
                             </div>
                             <div class="birthday-wrapper">
-                                <label for="birthday" class="special-label">Birthday</label>
+                                <label for="birthday" class="special-label">Birthday*</label>
                                 <input 
                                     type="date" 
                                     value="<?php echo $activeUserBirthday ?>"
                                     id="birthday" 
-                                    disabled>
+                                    placeholder="Enter date of birth"
+                                    disabled
+                                >
+                                <small class="validation"></small>
                             </div>
                         </div>
 
                         <!-- GENDER INPUT -->
                         <div class="gender-input">
-                            <label class="special-label">Gender</label>
+                            <label class="special-label">Gender*</label>
                             <div class="radio-item">
                                 <input 
                                     type="radio" 
@@ -171,6 +184,19 @@
                                 >
                                 <label for="female">Female</label>
                             </div>
+
+                            <div class="radio-item">
+                                <input 
+                                    type="radio" 
+                                    id="other" 
+                                    name="gender" 
+                                    value="Other" 
+                                    disabled
+                                    <?php echo ($activeUserGender == 'Other' ? 'checked' : null) ?>
+                                >
+                                <label for="other">Other</label>
+                            </div>
+                            <small class="validation">Choose a gender</small>
                         </div>
 
                         <a href="#target-settings-title">
@@ -201,13 +227,17 @@
                             <!-- This div will display after they clicked the change email btn -->
                             <div class="change-email-container">
                                 <div class="current-password-input">
-                                    <label for="current-password" class="special-label">Current Password</label>
-                                    <input type="password" id="current-password">
+                                    <label for="current-password" class="special-label">Current Password*</label>
+                                    <input 
+                                        type="password" 
+                                        id="current-password" 
+                                        placeholder="Enter current password"
+                                    >
                                     <small class="validation">Your current password is incorrect</small>
                                 </div>
                                 <div class="new-email-input">
-                                    <label for="new-email" class="special-label">New Email</label>
-                                    <input type="text" id="new-email">
+                                    <label for="new-email" class="special-label">New Email*</label>
+                                    <input type="text" id="new-email" placeholder="Enter new email address">
                                     <small class="validation">Sorry, your email must be between 6 and 40 characters long</small>
                                 </div>
                             </div>
@@ -235,21 +265,29 @@
                             <!-- This div will display after they clicked the change password btn -->
                             <div class="change-password-container">
                                 <div class="old-password-input">
-                                    <label for="old-password" class="special-label">Old Password</label>
-                                    <input type="password" id="old-password">
+                                    <label for="old-password" class="special-label">Old Password*</label>
+                                    <input type="password" id="old-password" placeholder="Enter old password">
                                     <small class="validation">Your old password is incorrect</small>
                                 </div>
                                 <div class="new-password-inputs">
                                     <div class="new-password-wrapper">
-                                        <label for="new-password" class="special-label">New Password</label>
-                                        <input type="password" id="new-password">
+                                        <label for="new-password" class="special-label">New Password*</label>
+                                        <input 
+                                            type="password" 
+                                            id="new-password" 
+                                            placeholder="Enter new password"
+                                        >
                                         <small class="validation">Use 8 characters or more for your password</small>
                                     </div>
                                     <div class="confirm-new-password-wrapper">
                                         <label for="confirm-new-password" class="special-label">
-                                            Confirm New Password
+                                            Confirm New Password*
                                         </label>
-                                        <input type="password" id="confirm-new-password">
+                                        <input 
+                                            type="password" 
+                                            id="confirm-new-password" 
+                                            placeholder="Confirm new passwor d"
+                                        >
                                         <small class="validation">Those passwords didn't match. Try again</small>
                                     </div>
                                 </div>   

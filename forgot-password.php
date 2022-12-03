@@ -20,7 +20,7 @@
     <!-- SWEET ALERT CDN -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 
-    <title>Forgot Password | Library Inforamtion System</title>
+    <title>Forgot Password | Library Information System</title>
 </head>
 <body>
     <header>

@@ -1,5 +1,8 @@
 <?php
     include 'crudDB/login-signup-proccess.php';
+    if(isset($_SESSION['active-user'])) {
+        include 'includes/refreshActiveUserSession.php';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

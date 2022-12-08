@@ -11,12 +11,49 @@
             <li><a href="">About</a></li>          
         </ul>
         <?php if(isset($_SESSION['active-user'])): ?>
-            <img class="user-avatar" id="user-avatar" onclick="toggleSubMenu()" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar" draggable="false">
-
+            <?php if(isset($_SESSION['active-user-avatar'])): ?>
+                <img 
+                    src="<?php 
+                            // Checks if the file exists in the uploads folder 
+                            if(file_exists($_SESSION['active-user-avatar']['img_destination'])) {
+                                echo $_SESSION['active-user-avatar']['img_destination']; 
+                            } else {
+                                echo 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+                            }
+                        ?>" 
+                    class="user-avatar"
+                    id="user-avatar"
+                    onclick="toggleSubMenu()"
+                    alt="User's avatar"
+                    draggable="false"
+                >
+            <?php else: ?>
+                <img 
+                    class="user-avatar" 
+                    id="user-avatar"
+                    onclick="toggleSubMenu()"
+                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar"
+                    draggable="false"
+                >
+            <?php endif ?>
             <div class="sub-menu-wrapper" id="sub-menu">
                 <div class="sub-menu">
                     <div class="user-info">
-                        <img class="sub-menu-avatar" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar">
+                        <?php if(isset($_SESSION['active-user-avatar'])): ?>
+                            <img 
+                                src="<?php 
+                                        // Checks if the file exists in the uploads folder 
+                                        if(file_exists($_SESSION['active-user-avatar']['img_destination'])) {
+                                            echo $_SESSION['active-user-avatar']['img_destination']; 
+                                        } else {
+                                            echo 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+                                        }
+                                    ?>" 
+                                class="sub-menu-avatar"
+                            >
+                        <?php else: ?>
+                            <img class="sub-menu-avatar" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="User's avatar">
+                        <?php endif ?>
                         <h2 class="sub-menu-name">
                             <?php echo $_SESSION['active-user']['firstname'] . " " . $_SESSION['active-user']['lastname'] ?>
                         <h2>

@@ -40,6 +40,9 @@
     <!-- SETTINGS JS -->
     <script src="js/settings.js"></script>
 
+    <!-- SWEET ALERT CDN -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
     <title>Settings | Library Information System</title>
 </head>
 <body>
@@ -58,6 +61,7 @@
             <div class="settings-content">
                 <!-- This hidden input is the id of the active user and will be used to update the db -->
                 <input id="hiddenActiveUserId" type="hidden" value="<?php echo $activeUserId ?>">
+
                 <div class="user-intro-wrapper">
                     <?php if(isset($_SESSION['active-user-avatar'])): ?>
                         <img 
@@ -78,7 +82,7 @@
                     <p><?php echo $activeUserEmail ?></p>
 
                     <form class="change-avatar-form" action="crudDB/uploadImg.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="imgFile" id="fileInput">
+                        <input type="file" name="imgFile" id="fileInput" accept=".jpg, .jpeg, .png">
                         <button id="change-avatar-btn" type="submit" name="change-avatar-btn">
                             Change Avatar
                         </button>
@@ -226,26 +230,22 @@
 
                             <!-- This div will display after they clicked the change email btn -->
                             <div class="change-email-container">
-                                <div class="current-password-input">
+                                <div class="current-password-wrapper">
                                     <label for="current-password" class="special-label">Current Password*</label>
-                                    <input 
-                                        type="password" 
-                                        id="current-password" 
-                                        placeholder="Enter current password"
-                                    >
-                                    <small class="validation">Your current password is incorrect</small>
+                                    <input type="password" id="current-password">
+                                    <small class="validation"></small>
                                 </div>
-                                <div class="new-email-input">
+                                <div class="new-email-wrapper">
                                     <label for="new-email" class="special-label">New Email*</label>
-                                    <input type="text" id="new-email" placeholder="Enter new email address">
-                                    <small class="validation">Sorry, your email must be between 6 and 40 characters long</small>
+                                    <input type="text" id="new-email">
+                                    <small class="validation"></small>
                                 </div>
                             </div>
 
                             <a href="#target-account-div">
-                                <button type="button" class="edit-btn">Change Email</button>
-                                <button type="button" class="cancel-btn">Cancel</button>
-                                <button type="button" class="save-btn">Update Email</button>
+                                <button id="change-email-btn" type="button" class="edit-btn">Change Email</button>
+                                <button id="cancel-email-btn" type="button" class="cancel-btn">Cancel</button>
+                                <button id="update-email-btn" type="button" class="save-btn">Update Email</button>
                             </a> 
 
                         </div>
@@ -266,38 +266,29 @@
                             <div class="change-password-container">
                                 <div class="old-password-input">
                                     <label for="old-password" class="special-label">Old Password*</label>
-                                    <input type="password" id="old-password" placeholder="Enter old password">
+                                    <input type="password" id="old-password">
                                     <small class="validation">Your old password is incorrect</small>
                                 </div>
                                 <div class="new-password-inputs">
                                     <div class="new-password-wrapper">
                                         <label for="new-password" class="special-label">New Password*</label>
-                                        <input 
-                                            type="password" 
-                                            id="new-password" 
-                                            placeholder="Enter new password"
-                                        >
-                                        <small class="validation">Use 8 characters or more for your password</small>
+                                        <input type="password" id="new-password">
+                                        <small class="validation"></small>
                                     </div>
                                     <div class="confirm-new-password-wrapper">
-                                        <label for="confirm-new-password" class="special-label">
-                                            Confirm New Password*
-                                        </label>
-                                        <input 
-                                            type="password" 
-                                            id="confirm-new-password" 
-                                            placeholder="Confirm new passwor d"
-                                        >
+                                        <label for="confirm-new-password" class="special-label">Confirm New Password*</label> 
+                                        <input type="password" id="confirm-new-password">
                                         <small class="validation">Those passwords didn't match. Try again</small>
                                     </div>
                                 </div>   
                             </div>
 
+                            <p class="password-tip">Make sure your password is at least 8 characters long.</p>
                             <a href="#target-account-div">
-                                <button type="button" class="edit-btn">Change Password</button>
+                                <button id="change-password-btn" type="button" class="edit-btn">Change Password</button>
     
-                                <button type="button" class="cancel-btn">Cancel</button>
-                                <button type="button" class="save-btn">Update Password</button>
+                                <button id="cancel-password-btn" type="button" class="cancel-btn">Cancel</button>
+                                <button id="update-password-btn" type="button" class="save-btn">Update Password</button>
                             </a>
                         </div>
                     </div>
@@ -306,7 +297,7 @@
                     <div class="delete-account">
                         <h3>Delete Account</h3>
                         <p>Once you delete your account, there is no going back. Please be certain.</p>
-                        <button type="button" class="delete-btn">Delete Account</button>
+                        <button id="delete-account-btn" type="button" class="delete-btn">Delete Account</button>
                     </div>
 
                     <!-- LOGOUT ACCOUNT -->

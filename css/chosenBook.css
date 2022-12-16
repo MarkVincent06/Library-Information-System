@@ -1,0 +1,66 @@
+/* LAYOUT */
+* {
+    box-sizing: border-box;
+}
+
+section {
+    padding: 20px 50px;
+    margin: 30px 20px;
+    display: flex;
+    gap: 30px;
+    text-decoration: none;
+}
+
+.left-section,
+.right-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-section .book-cover {
+    width: 250px;
+    margin-bottom: 55px;
+}
+
+.right-section h2{
+    color: royalblue;
+    font-size: 2rem;
+}
+
+.right-section small {
+    font-size: 14px;
+    margin-bottom: 20px;
+    w
+}
+
+.right-section p {
+    width: 60%;
+}
+
+.right-section small span {
+    color: royalblue;
+}
+
+.right-section .button-wrapper {
+    margin-bottom: 20px;
+}
+
+.right-section .button-wrapper button{
+    padding: 10px 20px;
+    border: 1px solid grey;
+    cursor: pointer;
+    transition: .3s ease-in;
+} 
+
+.right-section .button-wrapper button:hover {
+    opacity: 0.6;
+}
+
+.right-section .button-wrapper .dl-btn {
+    background-color: royalblue;
+    color: whitesmoke;
+}
+
+.right-section .button-wrapper .read-btn {
+    background-color: whitesmoke;
+}

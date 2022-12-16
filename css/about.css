@@ -1,0 +1,82 @@
+/* LAYOUTS */
+
+.section-wrapper {
+    padding: 60px 150px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    
+}
+
+.section-wrapper:nth-of-type(odd) {
+    background-color: whitesmoke;
+}
+
+.section-wrapper:nth-of-type(even) {
+    background-color: #1F2937;
+    color: whitesmoke;
+}
+
+.section-wrapper .left-section,
+.section-wrapper .right-section {
+    width: 50%;
+}
+
+.card {
+    position: relative;
+}
+
+
+
+/* IMAGES */
+img {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+}
+
+.about-us-img {
+    width: 600px;
+}
+
+.member-image {
+    width: 300px;
+}
+
+/* TYPOGRAPHY */
+h1 {
+    font-size: 2.5rem;
+    color: rgba(59,119,215, 1.0);
+    margin-bottom: 15px;
+}
+
+.section-wrapper .member-intro {
+    width: 50%;
+}
+
+.card .nametag,
+.card .nametag2,
+.card .nametag3 {
+    position: absolute;
+    top: 0;
+    font-family: 'Permanent Marker', cursive !important;
+    background: rgba(59,119,215, 1.0);
+    padding: 10px 20px;
+    border-radius: 3px;
+    color: whitesmoke;
+    letter-spacing: 2px;
+}
+
+.card .nametag {
+    transform: translate(50%, -55%);
+    left: 35px;
+}
+
+.card .nametag2 {
+    transform: translate(10%, -55%);
+    left: 17px;
+}
+
+.card .nametag3 {
+    transform: translate(20%, -55%);
+    left: 15px;
+}

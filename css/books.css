@@ -1,0 +1,70 @@
+/* LAYOUTS */
+
+.section-wrapper {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.section-wrapper h1 {
+    color: royalblue;
+    font-size: 2rem;
+}
+
+.section-wrapper .genre-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 100px;
+}
+
+.genre-wrapper .box-link {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    background-position: center;
+    background-size: cover;
+}
+
+.genre-wrapper .box-link:hover {
+    transform: scale(1.1);
+}
+
+.genre-wrapper .box-link.romance {
+    background-image: url("../img/books/romance-bg.jpg");
+}
+
+.genre-wrapper .box-link.action-adventure {
+    background-image: url("../img/books/action-adventure-bg.jpg");
+}
+
+.genre-wrapper .box-link.mystery-thriller {
+    background-image: url("../img/books/mystery-thriller-bg.jpg");
+}
+
+.genre-wrapper .box-link.childrens {
+    background-image: url("../img/books/childrens-bg.jpg");
+}
+
+.genre-wrapper .box-link.horror{
+    background-image: url("../img/books/horror-bg.jpg");
+}
+
+.genre-wrapper .box-link.science-fiction {
+    background-image: url("../img/books/science-fiction-bg.jpg");
+}
+
+/* TYPOGRAPHY */
+.genre-wrapper .box-link h3 {
+    background: #00000080;
+    color: whitesmoke;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}

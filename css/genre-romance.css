@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+.section-wrapper {
+    padding: 20px 50px;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.section-wrapper h1 {
+    color: royalblue;
+    font-size: 1.7rem;
+}
+
+.book-container {
+    display: flex;
+    gap: 50px;
+}
+
+.book-wrapper {
+    cursor: pointer;
+}
+
+.book-wrapper .book-cover {
+    width: 150px;
+    height: 200px;
+}

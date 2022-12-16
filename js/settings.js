@@ -59,7 +59,7 @@ $(document).ready(() => {
                         lastname: $("input#lastname").val(),address: $("input#address").val(), 
                         phone: $("input#phone").val(),birthday: $("input#birthday").val(), 
                         gender: $('input[name="gender"]:checked').val()
-                    },
+                    },  
                 success: response => {
                     showSuccessMsg('Profile Updated!', 'Your profile has been successfully updated.')
                 }

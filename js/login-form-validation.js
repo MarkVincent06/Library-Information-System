@@ -22,7 +22,8 @@ loginForm.addEventListener('submit', e => {
         if(!checkUserAccount(email.value, password.value)) {
             e.preventDefault()
             loginSubmitValidationMsg.style.display = 'block'
-        }
+            document.querySelector('#password').value = ''
+        }   
     } else {
         e.preventDefault()
     }

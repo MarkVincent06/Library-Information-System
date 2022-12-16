@@ -5,10 +5,9 @@
             <a href="#"><h3 class="main-logo-title">CAP - Library Information System</h3></a>
         </div>
         <ul class="nav--links-wrapper">
-            <li><a href="#">Home</a></li>
-            <li><a href="">Books</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">About</a></li>          
+            <li><a href="index.php">Home</a></li>
+            <li><a href="books.php">Books</a></li>
+            <li><a href="about.php">About Us</a></li>          
         </ul>
         <?php if(isset($_SESSION['active-user'])): ?>
             <?php if(isset($_SESSION['active-user-avatar'])): ?>
